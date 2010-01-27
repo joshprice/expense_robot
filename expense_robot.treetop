@@ -1,0 +1,34 @@
+grammar Expense
+
+  rule expense_entry
+    cost item time
+  end
+
+  rule cost
+    "$"? [0-9]+
+  end
+  
+  rule item
+    space name
+  end
+  
+  rule name
+    word (space word)*
+  end
+  
+  rule word
+    !date [a-zA-Z]+
+  end
+  
+  rule time
+    (space date)?
+  end
+  
+  rule date
+    "today"
+  end
+  
+  rule space
+    (" " / "\t")+
+  end
+end
